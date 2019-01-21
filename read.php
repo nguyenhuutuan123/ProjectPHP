@@ -25,11 +25,14 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                 
                 // Retrieve individual field value
                 $id = $row["id"];
-                $name = $row["name"];
+                $name = $row["prod_name"];
+                $code = $row["code"];
                 $img = $row["img"];
-                $category = $row["category"];
+                $category = $row["category_id"];
                 $quantity = $row["quantity"];
-                $price = $row["price"];
+                $price = $row["new_price"];
+                $status = $row["status_id"];
+                $imported_date = $row["imported_date"];
                 $description = $row["description"];
                 
             } else{
@@ -88,7 +91,16 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                             <label>Name</label>
                         </div>
                         <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                            <p class="form-control-static"><?php echo $row["name"]; ?></p>
+                            <p class="form-control-static"><?php echo $row["prod_name"]; ?></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                            <label>Code</label>
+                        </div>
+                        <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                            <p class="form-control-static"><?php echo $row["code"]; ?></p>
                         </div>
                     </div>
                     <div class="row">
@@ -106,19 +118,19 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                             <p class="form-control-static"><?php 
                             require('connection_db.php');
-                            $res_cate_id = mysqli_query($mysqli,"SELECT * FROM categories WHERE id = ". $row['category']);
+                            $res_cate_id = mysqli_query($mysqli,"SELECT * FROM categories WHERE id = ". $row['category_id']);
                             while($rowCa = mysqli_fetch_assoc($res_cate_id))
                             {
-                               ?>
-                               <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['name']; ?></option>   
+                             ?>
+                             <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['cat_name']; ?></option>   
 
-                               <?php
-                            }
-                            mysqli_close($mysqli);  ?></p>
-                            <!-- echo $row["category"]; -->
-                       </div>
-                   </div>
-                   <div class="row">
+                             <?php
+                         }
+                         mysqli_close($mysqli);  ?></p>
+                         <!-- echo $row["category"]; -->
+                     </div>
+                 </div>
+                 <div class="row">
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
                         <label>Quantity</label>
                     </div>
@@ -131,22 +143,49 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                         <label>Price</label>
                     </div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                        <p class="form-control-static"><?php echo $row["price"]; ?></p>
+                        <p class="form-control-static"><?php echo $row["new_price"]; ?></p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <label>Description</label>
+                        <label>Status</label>
                     </div>
                     <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                     <p class="form-control-static"><?php echo $row["description"]; ?></p>
-                 </div>
-             </div>
+                        <p class="form-control-static"><?php 
+                        require('connection_db.php');
+                        $res_cate_id = mysqli_query($mysqli,"SELECT * FROM status_product WHERE id = ". $row['status_id']);
+                        while($rowCa = mysqli_fetch_assoc($res_cate_id))
+                        {
+                           ?>
+                           <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['status_name']; ?></option>   
 
-             <p><a href="select.php" class="btn btn-primary">Back</a></p>
-         </div>
-     </div>        
- </div>
+                           <?php
+                       }
+                       mysqli_close($mysqli);  ?></p>
+
+                   </div>
+               </div>
+               <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>Imported Date</label>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                    <p class="form-control-static"><?php echo $row["imported_date"]; ?></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                    <label>Description</label>
+                </div>
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                   <p class="form-control-static"><?php echo $row["description"]; ?></p>
+               </div>
+           </div>
+
+           <p><a href="index.php" class="btn btn-primary">Back</a></p>
+       </div>
+   </div>        
+</div>
 </div>
 </body>
 </html> 

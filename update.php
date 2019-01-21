@@ -14,33 +14,47 @@ if (isset($_FILES['fileUpload'])) {
 }
 
 // Define variables and initialize with empty values
-$name = $category = $quantity = $price = $description= "";
-$name_err   = $category_err = $quantity_err = $price_err = $description_err= "";
+$prod_name = $prod_code=  $category_id = $quantity = $new_price =$status_id= $imported_date= $description= "";
+$prod_name_err= $code_err=  $category_err = $quantity_err = $new_price_err =$status_err= $imported_date_err =  $description_err= "";
 
 // Processing form data when form is submitted
 if(isset($_POST["id"]) && !empty($_POST["id"])){
     // Get hidden input value
     $id = $_POST["id"];
     
-
-
     // Validate name
-    $input_name = trim($_POST["txtName"]);
+    $input_name = trim($_POST["prod_name"]);
     if(empty($input_name)){
-        $name_err = "Please enter a name.";
+        $prod_name_err = "Please enter a name.";
     } else{
-        $name = $input_name;
+        $prod_name = $input_name;
+    }
+
+    // Validate prod_code
+    $input_code = trim($_POST["prod_code"]);
+    if(empty($input_code)){
+        $code_err = "Please enter code.";
+    } else{
+        $prod_code = $input_code;
     }
     
 
    // $fileUpload = $_FILES['fileUpload']['name'];
     
     // Validate category
-    $input_category = trim($_POST["category"]);
+    $input_category = trim($_POST["category_id"]);
     if(empty($input_category)){
         $category_err = "Please enter the category amount.";     
     }   else{
-        $category = $input_category;
+        $category_id = $input_category;
+    }
+
+    // Validate status
+    $input_status = trim($_POST["status_id"]);
+    if(empty($input_status)){
+        $status_err = "Please enter the status.";     
+    }   else{
+        $status_id = $input_status;
     }
 
     
@@ -52,13 +66,16 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         $quantity = $input_quantity;
     }
 
+
     // Validate price
     $input_price = trim($_POST["txtPrice"]);
     if(empty($input_price)){
-        $price_err = "Please enter the price amount.";     
+        $new_price_err = "Please enter the price amount.";     
     } else{
-        $price = $input_price;
+        $new_price = $input_price;
     }
+
+    
 
 
     // Validate description description
@@ -70,21 +87,24 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     }
 
     // Check input errors before inserting in database
-    if(empty($name_err)  && empty($quantity_err) && empty($price_err)  && empty($description_err)){
+    if(empty($prod_name_err)&&  empty($code_err) && empty($quantity_err) && empty($new_price_err) && empty($status_err)  && empty($description_err)){
         // Prepare an update statement
-        $sql = "UPDATE products SET name=?, img=?, category=?, quantity=?, price=?, description=? WHERE id=?";
+        $sql = "UPDATE products SET prod_name=?, code =?,  img=?, category_id=?, quantity=?, new_price=?,status_id=?, description=? WHERE id=?";
 
         if($stmt = mysqli_prepare($mysqli, $sql)){
             // Bind variables to the prepared statement as parameters
-            mysqli_stmt_bind_param($stmt, "ssiiisi", $param_name, $fileUpload, $param_category, $param_quantity, $param_price, $param_description, $param_id);
+            mysqli_stmt_bind_param($stmt, "sssiiiisi", $param_name,$param_code, $fileUpload, $param_category, $param_quantity, $param_price, $param_status, $param_description, $param_id);
             
             // Set parameters
-            $param_name = $name;
+            $param_name = $prod_name;
+            $param_code = $prod_code;
             $fileUpload = $_FILES['fileUpload']['name'];
-            $param_category = $category;
+            $param_category = $category_id;
             $param_quantity = $quantity;
-            $param_price = $price;
+            $param_price = $new_price;
+            $param_status = $status_id;
             $param_description = $description;
+
             $param_id = $id;
 
             // Attempt to execute the prepared statement
@@ -128,11 +148,13 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     
                     // Retrieve individual field value
 
-                    $name = $row["name"];
+                    $prod_name = $row["prod_name"];
+                    $prod_code = $row["code"];
                     $img = $row["img"];
-                    $category = $row["category"];
+                    $category = $row["category_id"];
                     $quantity = $row["quantity"];
-                    $price = $row["price"];
+                    $new_price = $row["new_price"];
+                    $status_id = $row["status_id"];
                     $description = $row["description"];
                 } else{
                     // URL doesn't contain valid id. Redirect to error page
@@ -149,7 +171,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
         mysqli_stmt_close($stmt);
         
         // Close connection
-        mysqli_close($link);
+        mysqli_close($mysqli);
     }  else{
         // URL doesn't contain id parameter. Redirect to error page
         header("location: error.php");
@@ -182,73 +204,112 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
                     </div>
                     <p>Vui lòng chỉnh sửa các giá trị đầu vào và gửi để cập nhật hồ sơ..</p>
                     <form action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post" enctype="multipart/form-data">
-                        <div class="form-group <?php echo (!empty($name_err)) ? 'has-error' : ''; ?>">
+                        <div class="form-group <?php echo (!empty($prod_name_err)) ? 'has-error' : ''; ?>">
                             <label>Name</label>
-                            <input type="text" name="txtName" class="form-control" value="<?php echo $name; ?>">
-                            <span class="help-block"><?php echo $name_err;?></span>
+                            <input type="text" name="prod_name" class="form-control" value="<?php echo $prod_name; ?>">
+                            <span class="help-block"><?php echo $prod_name_err;?></span>
+                        </div>
+                        <div class="form-group <?php echo (!empty($prod_name_err)) ? 'has-error' : ''; ?>">
+                            <label>Code </label>
+                            <input type="text" name="prod_code" class="form-control" value="<?php echo $prod_code; ?>">
+                            <span class="help-block"><?php echo $code_err;?></span>
                         </div>
                         <div class="form-group <?php echo (!empty($image_err)) ? 'has-error' : ''; ?>">
-                            <label>Hình ảnh</label>
+                            <label>Images</label>
                             <input type="file" name="fileUpload" id="input" class="form-control" value=" <?php echo "<td>" . $row['img'] . "</td>" ?>"  >
                             <img src="<?php echo "./uploads/" .$row['img'] ?>" heigh=100px width=100px> 
 
                             <span class="help-block"><?php echo $image_err;?></span>
                         </div> 
                         <div class="form-group ">
-                            <label>Danh muc </label>
+                            <label>Category </label>
 
-                            <select class="form-control" name="category">
+                            <select class="form-control" name="category_id">
 
                              <?php
                              require('connection_db.php');
-                             $res_cate_id = mysqli_query($mysqli,"SELECT * FROM categories WHERE id = ". $row['category']);
+                             $res_cate_id = mysqli_query($mysqli,"SELECT * FROM categories WHERE id = ". $row['category_id']);
                              while($rowCa = mysqli_fetch_assoc($res_cate_id))
                              {
                                ?>
-                               <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['name']; ?></option>   
+                               <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['cat_name']; ?></option>   
 
                                <?php
                            }
 
                            $sql3 = "SELECT * FROM categories";
-                                        $result = mysqli_query($mysqli,$sql3);
-                                        if($result)
-                                        {    
-                                            while($row = mysqli_fetch_assoc($result))
-                                            {
-                                                ?>
-                                                <?php echo $row['name']; ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['name']; ?></option>   
-                                                <?php
-                                            }
-                                        }
-                         mysqli_close($mysqli);
-                         ?>
+                           $result = mysqli_query($mysqli,$sql3);
+                           if($result)
+                           {    
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                                ?>
+                                <?php echo $row['cat_name']; ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['cat_name']; ?></option>   
+                                <?php
+                            }
+                        }
+                        mysqli_close($mysqli);
+                        ?>
 
-                     </select>
+                    </select>
 
-                 </div>
+                </div>
 
-                 <div class="form-group <?php echo (!empty($quantity_err)) ? 'has-error' : ''; ?>">
+                <div class="form-group <?php echo (!empty($quantity_err)) ? 'has-error' : ''; ?>">
                     <label>Quantity</label>
                     <input type="number" name="txtNumber" class="form-control" value="<?php echo $quantity; ?>">
                     <span class="help-block"><?php echo $quantity_err;?></span>
                 </div>
 
-                <div class="form-group <?php echo (!empty($price_err)) ? 'has-error' : ''; ?>">
+                <div class="form-group <?php echo (!empty($new_price_err)) ? 'has-error' : ''; ?>">
                     <label>Price</label>
-                    <input type="number" name="txtPrice" class="form-control" value="<?php echo $price; ?>"  min="20000" required/>
-                    <span class="help-block"><?php echo $price_err;?></span>
+                    <input type="number" name="txtPrice" class="form-control" value="<?php echo $new_price; ?>"  min="20000" required/>
+                    <span class="help-block"><?php echo $new_price_err;?></span>
+                </div>
+                <div class="form-group ">
+                            <label>Status </label>
+
+                            <select class="form-control" name="status_id">
+
+                             <?php
+                             require('connection_db.php');
+                             $res_cate_id = mysqli_query($mysqli,"SELECT * FROM status_product WHERE id = ". $row['status_id']);
+                             while($rowCa = mysqli_fetch_assoc($res_cate_id))
+                             {
+                               ?>
+                               <option value="<?php echo $rowCa['id']; ?>"><?php echo $rowCa['status_name']; ?></option>   
+
+                               <?php
+                           }
+
+                           $sql3 = "SELECT * FROM status_product";
+                           $result = mysqli_query($mysqli,$sql3);
+                           if($result)
+                           {    
+                            while($row = mysqli_fetch_assoc($result))
+                            {
+                                ?>
+                                <?php echo $row['status_name']; ?>
+                                <option value="<?php echo $row['id']; ?>"><?php echo $row['status_name']; ?></option>   
+                                <?php
+                            }
+                        }
+                        mysqli_close($mysqli);
+                        ?>
+
+                    </select>
+
                 </div>
                 <div class="form-group <?php echo (!empty($description_err)) ? 'has-error' : ''; ?>">
                     <label>Description</label>
                     <textarea name="txtDescript" class="form-control"><?php echo $description; ?></textarea>
                     <span class="help-block"><?php echo $description_err;?></span>
                 </div>
+                
+                <button type="submit" name="update" class="btn btn-primary btn-lg btn-block"   >Update</button>
+                <a href="select.php" class="btn btn-primary btn-lg btn-block">Cancel</a>
                 <input type="hidden" name="id" value="<?php echo $id; ?>"/>
-                <button type="submit" name="update" class="btn btn-warning "   style="margin-left: 227px;">Update</button>
-                <a href="select.php" class="btn btn-default">Cancel</a>
-
             </form>
         </div>
     </div>        

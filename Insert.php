@@ -14,18 +14,20 @@ if (isset($_FILES['fileUpload'])) {
 }
 
 
-$sql = "INSERT INTO products (name ,img, category, quantity, price, description) VALUES (? ,? , ?, ?, ?, ?)";
+$sql = "INSERT INTO products (prod_name, code, img, category_id, quantity, new_price, status_id, description) VALUES (?, ?, ? , ? ,? , ?, ?, ?)";
 
 if($stmt = $mysqli->prepare($sql)){
 
-    $stmt->bind_param("ssiiis", $namePr,$fileUpload, $categoryPr, $quantityPr, $pricePr, $descriptPr);
+    $stmt->bind_param("sssiiiis", $namePr, $codePr ,$fileUpload, $categoryPr, $quantityPr, $pricePr,$statusPr, $descriptPr);
     
     
     $namePr = $_POST['txtName'];
+    $codePr = $_POST['code'];
     $fileUpload = $_FILES['fileUpload']['name'];
     $categoryPr = $_POST['category'];
     $quantityPr = $_POST['txtNumber'];
     $pricePr = $_POST['txtPrice'];
+    $statusPr = $_POST['txtStatus'];
     $descriptPr = $_POST['txtDescript'];
     $stmt->execute();
     

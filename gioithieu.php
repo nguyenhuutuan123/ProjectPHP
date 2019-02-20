@@ -1,316 +1,241 @@
- <!DOCTYPE html>
- <html>
- <head>
- 	<title>Home</title>
- 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
- 	<link rel="stylesheet" href="swiper-master/dist/css/swiper.min.css">
- 	<meta name="viewport" content="width=device-width, initial-scale=1">
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
- 	<script language="javascript"></script>
- 	<script type="text/javascript" src="JS/script.js"></script>
- 	<meta name="Viewport" content="width=device-width.initial-scale=1">
- 	<meta http-equiv="X-UA-compatible" content="IE=edge"> 
- 	<link rel="stylesheet" type="text/css" href="animate/animate.css">
- 	<script type="text/javascript" src="animate/wow.min.js"></script>
+<?php 
+include("addcard.php"); 
+include("connection_db.php");
+session_start();  
 
- 	<script type="text/javascript">
- 		new WOW().init();
- 	</script>
+?>
 
- 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
- </head>
- <body  style="background: #effcfa;">
- 	<div id="fb-root"></div>
- 	<script>(function(d, s, id) {
- 		var js, fjs = d.getElementsByTagName(s)[0];
- 		if (d.getElementById(id)) return;
- 		js = d.createElement(s); js.id = id;
- 		js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
- 		fjs.parentNode.insertBefore(js, fjs);
- 	}(document, 'script', 'facebook-jssdk'));
- </script>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
 
- <div class="container">
- 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
- 		<div class="row">
- 			<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
- 				<img src="Images/logo.png" title="Dịch Vụ Spa Thương Tuấn" style="margin-top: 10px; margin-bottom: 5px;margin-left: -20px; width: 140px;">
- 			</div>
- 			<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
- 				<input type="text" name="" id="input" class="form-control" placeholder=" Tìm kiếm ..." style="margin-top: 55px; margin-left: 40px">
- 			</div>
- 			<div class="  col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
- 				<button type="button" class="btn btn-danger" style="margin-top: 55px;margin-left: -10px;"><span class="glyphicon glyphicon-search"></span>  </button>
- 			</div>
- 			<div class="col-xs-4 col-sm-4 col-md-4 col-lg-5" style="margin-top: 17px;">
- 				<address class="text-responsive">
- 					<strong>Địa chỉ :</strong>
- 					101B Lê Hữu Trác, Sơn Trà, Đà Nẵng <br>
- 					<strong><abbr title="Phone">Điện thoại:</strong></abbr> 01265982764<br>
- 					<strong>Email : </strong><br>
- 					<a href="mailto:#">tuan.nguyen.106902@gmail.com</a>
- 				</address>
- 			</div>
- 			<div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
-                <div class="row">
 
-                     <a href="Login.php"><button type="button" class="btn btn-primary" style="margin-top: 30px;" data-toggle="modal" data-target="#loginModal"  ><i class="glyphicon glyphicon-map-marker hvr-grow a"></i>
-                        Đăng nhập
-                    </button></a>
-                    
-                    <a href="Signup.php"><button type="button" class="btn btn-primary" style="margin-top: 20px;    width: 109px;" data-toggle="modal" data-target="#signupModal"><i class="glyphicon glyphicon-user  hvr-grow a"></i>
-                        Đăng ký
-                    </button></a>
-                </div>
+  <link rel="stylesheet" type="text/css" href="CSS/style.css">
+  <link rel="stylesheet" href="swiper-master/dist/css/swiper.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript"></script>
+  <script type="text/javascript" src="JS/script.js"></script>
+  <meta name="Viewport" content="width=device-width.initial-scale=1">
+  <meta http-equiv="X-UA-compatible" content="IE=edge"> 
+  <link rel="stylesheet" type="text/css" href="animate/animate.css">
+  <script type="text/javascript" src="animate/wow.min.js"></script>
 
-            </div>
- 		</div>
- 	</div>
- 	<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
- 		<div id="header">
- 			<nav class="navbar navbar-inverse" style="margin-top: 0px">
- 				<div class="navbar-header" style="height: 0px" >
- 					<a href="home.php" title="Dịch Vụ Spa Thương Tuấn" class="navbar-brand" id="maumenu">Tảo Tuấn Spa</a>
- 				</div>
- 				<div class="navbar-header menubar">
- 					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
- 						<span class="sr-only">Toggle navigation</span>
- 						<span class="icon-bar"></span>
- 						<span class="icon-bar"></span>
- 						<span class="icon-bar"></span>
- 					</button>
- 				</div>
+  <script type="text/javascript">
+    new WOW().init();
+  </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <meta charset="utf-8">
+</head>
 
- 				<div class="collapse navbar-collapse menubar" id="collapse">
- 					<ul class="nav navbar-nav navbar-right menubar">
- 						<li><a href="home.php" title="Trang Chủ"  id="maumenu"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
- 						<li><a href="gioithieu.php" title="Giới Thiệu" id="maumenu"> <span class="glyphicon glyphicon-star-empty"></span>Giới thiệu</a></li>
- 						<li class="dropdown" >
- 							<a  id="maumenu" href="#" title="Dịch Vụ Spa" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> Dịch Vụ Spa</a>
- 							<ul class="dropdown-menu menubar">
- 								<li><a href="dieutri.php" title="Điều Trị">Điều Trị</a></li>
- 								<li><a href="#" title="Trắng Da">Trắng Da</a></li>
- 								<li><a href="#"  title="Giảm Béo">Giảm Béo</a></li>
- 								<li><a href="#" title="Chăm Sóc Gia<">Chăm Sóc Gia</a></li>
- 								<li><a href="#" title="Phun Xăm">Phun Xăm</a></li>
+<body  style="background: #effcfa;">
+  <?php
+  require_once "top.php";
+  ?>
+  <div id="wapper">
 
- 							</ul>
- 						</li>
+    <form method="post" action="gioithieu.php?id=<?php echo $row["id"]; ?>">
+      <div class="container ">
+        <div style="  margin-left: 2%; margin-right: 2%" class="row chitiet">
 
- 						<li><a href="baiviet.php" title="Bài Viết"  id="maumenu" ><span class="glyphicon glyphicon-menu-hamburger"></span>Bài Viết</a></li>
- 						<li><a href="lienhe.php" title="Liên hệ" id="maumenu" ><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
-                        <li><a href="#" title="Shopping card " id="maumenu" ><span class="glyphicon glyphicon-shopping-cart  hvr-grow a1"></span> My Cart</a></li>
- 					</ul>
- 				</div>
- 			</nav>
- 		</div>
- 	</div>
- 	<!-- ảnh đầu tiên sau menu bar -->
- 	<div class="row">
- 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
- 			<section class="background-container background-form" style="background-image: url('Images/anhgioithieu.jpg')">
- 				<div class="background-overlay"></div>
- 				<div class="container">
- 					<div class="text-inner-background">
- 						<h1 class="color-white">Tảo Tuấn Spa </h1>
- 						<h3 class="color-white" style="font-size: 19px;">Tọa lạc tại địa chỉ 101B Lê Hữu Trác, Phường Phước Mỹ, Quận Sơn Trà, TP Đà Nẵng, Thương Tuấn Hair &amp; Spa là địa chỉ làm đẹp đáng tin cậy với công nghệ và các chuyên gia hàng đầu về thẩm mĩ, thuận tiện cho khách hàng lui tới thăm khám và trải nghiệm dịch vụ.</h3>
- 					</div>
- 				</div>
- 			</section>
- 		</div>
- 		<div class="row">
- 			<div class=" col-sm-7" >
- 				<h2>Địa Chỉ :</h2>
- 				<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.1123674739974!2d108.23931351433654!3d16.059657743961317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177f0872a317%3A0x97b5dc012c8a8f3e!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEzGsMahbmcgVGjhu7FjIFRo4buxYyBQaOG6qW0!5e0!3m2!1sen!2s!4v1542011347252" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
- 			</div>
-
- 			<div class="col-sm-5 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1" style="background-color: #e3ecec">
- 				<h2>Tin liên quan :</h2>
- 				<div class="media">
- 					<div class="media-left">
- 						<a href="#"><img src="Images/gt1.jpg" class="media-object" style="width: 179px;"></a>
- 					</div>
- 					<div class="media-body">
- 						<h4 class="media-heading">GÓI ƯU ĐÃI SPA 01 – Tảo Tuấn SPA</h4>
- 						<p>Gói 1: Massage bụng giảm cân + Quấn gel tan mỡ + Massage bấm huyệt đầu vai cổ + Chạy Collagen tươi + Đắp .</p>
- 					</div>
- 				</div><hr>
-
- 				<div class="media">
- 					<div class="media-left">
- 						<a href="#"><a href="http://ngocanhhairspa.com.vn/bai-viet/page/2/"><img src="Images/gt2.jpg"  class="media-object" style="width: 179px;"></a></a>
- 					</div>
- 					<div class="media-body">
- 						<h4 class="media-heading">Massage body Thụy Điển kết hợp Thái bằng đá nóng</h4>
- 						<p>Những lúc mệt mỏi, căng thẳng vì phải ngồi làm việc nhiều giờ liên tục , khí huyết  không lưu thông hay vừa trải qua.</p>
- 					</div>
- 				</div><hr>
-
- 				<div class="media">
- 					<div class="media-left">
- 						<a href="#"><img src="Images/gt3.jpg" class="media-object" style="width: 179px;"></a>
- 					</div>
- 					<div class="media-body">
- 						<h4 class="media-heading">Điều trị Nám – Tàn nhang bằng Laser công nghệ cao</h4>
- 						<p>Nám và tàn nhang là nỗi ám ảnh của hàng triệu phái đẹp Việt. Tuy không ảnh hưởng đến sức khỏe nhưng nám và tàn.</p>
- 					</div>
- 				</div><hr>
- 			</div>
- 		</div>
- 		<div class="row   " >
- 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
- 				<div class="progress">
- 					<div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
- 						<a href="#">Tảo Tuấn Spa</a>
- 					</div>
- 					<div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
- 						<a href="#">Chất lượng</a>
- 					</div>
- 					<div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
- 						<a href="#">Nhiệt tình</a>
- 					</div>
- 					<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
- 					aria-valuemin="0" aria-valuemax="100" style="width:20%">
- 					<a href="#">Nhiều ưu đãi</a>
- 				</div>
- 			</div>
- 		</div>
-
-	<div class="row  wow bounceInUp"  data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
-        <div class="  col-sm-12  ">
-            <h2 id="cauhoi">Tại sao nên chọn Tảo Tuấn Spa ?</h2></br>
-            <div class="row">
-                <div class="  col-sm-3 ">
-                    <div class="">
-                        <a href="#"><img src="Images/ht.jpg" alt="" class="img-thumbnail" style="border: 4px solid #1ff01c;width: 262.5px;height: 179px;"></a>
-                        <div class="caption">
-                            <h4 id="mauchu">Hệ thống Spa đạt chuẩn Hàn Quốc uy tín hàng đầu Việt Nam</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="  col-sm-3  ">
-                    <div class="">
-                        <a href="#"><img src="Images/nhanvien.jpg" class="img-thumbnail" alt="" style="border: 4px solid #1ff01c;width: 262.5px;"></a>
-                        <div class="caption">
-                            <h4 id="mauchu">100% đội ngũ bác sĩ uy tín được cấp chứng chỉ hiệp hội thẩm mỹ Hàn Quốc</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="  col-sm-3  ">
-                    <div class="">
-                        <a href="#"><img src="Images/gai.jpg" class="img-thumbnail" alt="" style="border: 4px solid #1ff01c;width: 262.5px;height: 179px;"></a>
-                        <div class="caption">
-                            <h4 id="mauchu">Địa chỉ lột xác cho nhiều khách hàng</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class=" col-sm-3  ">
-                    <div class="">
-                        <a href="#"><img src="Images/lotrinh.jpg" class="img-thumbnail" alt="" style="border: 4px solid #1ff01c;width: 262.5px;"></a>
-                        <div class="caption">
-                            <h4 id="mauchu" >Chăm sóc sức khỏe theo lộ trình phù hợp</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="row wow bounceInUp"data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
-        <div class="  col-sm-12  ">
-            <div class="  col-sm-4   ">
-                <img src="Images/cauchuyen.jpg" class="img-circle" alt="" style="border: 5px solid #df2a0d;border-top: 1px solid #df2a0d;border-bottom: 13px solid #df2a0d;width: auto; margin-top: 30px;"> <br></br>
-            </div>
-            <div class="  col-sm-7 ">
-                <br> </br>  
-                <p style="font-size: 15px;color: #3d3838;"  width="text-responsive">Câu chuyện bắt nguồn từ một người từng bị mụn tấn công khá nặng, mọi người cũng vì thế mà dần xa lánh. Mặc dù đã điều trị ở nhiều nơi nhưng kết quả vẫn bằng không. Sau khi có thời gian sinh sống tại Hàn Quốc, tôi quyết đinh mang bí quyết trị mụn, cách chăm sóc và dưỡng da về Việt Nam, như một phép màu giúp hàng triệu người dân Việt dễ dàng sở hữu được một làn da đẹp hoàn hảo như người dân xứ Hàn.</p>
-                <p style="font-size: 15px;color: #3d3838;">Mạnh dạn đem công nghệ tiên tiến, trang thiết bị hiện đại, cùng với sản phẩm chuyên điều trị mụn và chăm sóc da cao cấp. SEOUL SPA tự tin đem đến bạn làn da CĂNG BÓNG, SÁNG MỊN và SẠCH MỤN hoàn toàn, cam kết đem đến sự hài lòng tuyệt đối đến khách hàng. SEOUL SPA lấy tâm làm quy chuẩn đảm bảo mọi khách hàng luôn an tâm về chất lượng dịch vụ, từ nhân viên, máy móc đến sản phẩm điều trị. Mong muốn mọi người dân Việt Nam có thể tự tin mọi góc nhìn, mọi hoàn cảnh với một làn da sáng - sạch - đẹp.</p></br>
-            </div>
-        </div>
-    </div>
-
-    <div class="row wow bounceInUp" data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1" style="background: #e3ecec ">
-        <div class=" col-sm-6  ">
-            <h2 class="" style="color: #e616f4;font-style: italic;">Secret of BeautyPress</h2>
-            <p style="font-size: 15px;color: #3d3838;" width="text-responsive" >Tọa lạc tại địa chỉ 101B Lê Hữu Trác, Phường Phước Mỹ, Quận Sơn Trà, TP Đà Nẵng, Thương Tuấn Spa là địa chỉ làm đẹp đáng tin cậy với công nghệ và các chuyên gia hàng đầu về thẩm mĩ, thuận tiện cho khách hàng lui tới thăm khám và trải nghiệm dịch vụ. Thương Tuấn Spa đi vào hoạt động như hiện thân của sự đẳng cấp và hiện đại từ những chi tiết nhỏ nhặt nhất. Đạt điểm tối đa khi sở hữu một không gian sang trọng và hoàn toàn riêng tư, Thương Tuấn Spa chiếm trọn cảm tình của khách hàng khi đi cùng với vẻ tinh tế bề ngoài là một chất lượng dịch vụ tận tâm, cao cấp đat tiêu chuẩn chất lượng 5*.</p>
-            <p style="font-size: 15px;color: #3d3838;">Sứ mệnh cao cả của Thương Tuấn Spa
-                Các chị em khi gặp phải các vấn đề về da như: mụn bọc, sạm nám, da sần sùi, thừa cân,… đều không dám giao tiếp, ngại ra ngoài và né tránh chụp ảnh hoặc sợ sệt trước mọi ánh nhìn của xã hội. Đây đều là những biểu hiện của người phụ nữ thiếu tự tin trong cuộc sống, khiến họ mất di nhiều cơ hội trong công việc, cơ hội có được hạnh phúc trong cuộc sống.
-                Các vấn đề về da khiến phụ nữ thiếu tự tin, ảnh hưởng đến tâm lý và các hoạt động xã hội
-                Thương Tuấn Spa luôn trăn trở và cảm thấy mình cần có trách nhiệm để giúp các chị em thoát khỏi nỗi ám ảnh này. Đến với Thương Tuấn Spa, chúng tôi đem đến sự tự tin để bạn thoải mái thể hiện mình, phô diễn trí tuệ và tài năng của bản thân nhờ làn da mặt mịn màng, vẻ đẹp tự nhiên khiến ai cũng mê mẩn và ngưỡng mộ.
-            Hãy đến với Thương Tuấn Spa để bạn được chăm sóc sức khỏe và sắc đẹp như một chính khách của Hoàng Gia !</p>
-        </div>
-        <div class="  col-sm-6  " style="margin-top: 90px;">
-           <iframe width="responsive" height="315" src="https://www.youtube.com/embed/9XLw5v16auY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-       </div>
-   </div>
-   <!-- Facebook comment -->
-   <div class="fb-comments" data-href="https://thuongtuanspaproject.000webhostapp.com/" data-numposts="5"></div>
-
-   <!-- FOOTER -->
-   <div class="row">
-    <section class="footer-container footer-form"  style="background-image: url( 'Images/footerbground.png')">
-        <div class="container"> 
+         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <section class="background-container background-form" style="background-image: url('Images/anhgioithieu.jpg')">
+           <div class="background-overlay"></div>
+           <div class="container">
             <div class="text-inner-background">
-                <center>
-                    <!-- <a class="up-arrow" href="#first">aaaaa</a></br> -->
-                    <!-- <a href=""><img class="up-arrow" src="Images/logo.png" title="Dịch Vụ Spa Thương Tuấn" style="width: 150px;"></a> -->
-                    <label class="mac"> ĐĂNG KÝ NHẬN KHUYẾN MÃI </label>
-                </center>
-                <div class="row">
-                    <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3">
-                    </div>
+             <h1 class="color-white">Tảo Tuấn Spa </h1>
+             <h3 class="color-white" style="font-size: 19px;">Tọa lạc tại địa chỉ 101B Lê Hữu Trác, Phường Phước Mỹ, Quận Sơn Trà, TP Đà Nẵng, Thương Tuấn Hair &amp; Spa là địa chỉ làm đẹp đáng tin cậy với công nghệ và các chuyên gia hàng đầu về thẩm mĩ, thuận tiện cho khách hàng lui tới thăm khám và trải nghiệm dịch vụ.</h3>
+           </div>
+         </div>
+       </section>
+     </div>
 
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <input type="text" name="" id="input" class="form-control" placeholder=" Email ..." style="margin-top: -5px; margin-left: 41px;
-                        ">
-                    </div>
+     <div class=" col-xs-5 col-sm-5 col-md-5 col-lg-7" >
+       <h2>Địa Chỉ :</h2>
+       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.1123674739974!2d108.23931351433654!3d16.059657743961317!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142177f0872a317%3A0x97b5dc012c8a8f3e!2zVHLGsOG7nW5nIGNhbyDEkeG6s25nIEzGsMahbmcgVGjhu7FjIFRo4buxYyBQaOG6qW0!5e0!3m2!1sen!2s!4v1542011347252" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+     </div>
 
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <button type="button" class="btn btn-danger" style="margin-top: -5px;margin-left:-130px;"><span class="glyphicon glyphicon-envelope"></span> Đăng ký</button>
-                    </div>
-                </div><br></br>
+     <div class="col-xs-6 col-sm-6 col-md-6 col-lg-5 wow bounceInUp" data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1" style="background-color: #e3ecec">
+       <h2>Tin liên quan :</h2>
+       <?php 
+       require('connection_db.php');
+       $sql1 = "SELECT * FROM Products where status_id = 6 limit 3     ;";
+       if($result1 = mysqli_query($mysqli, $sql1)){
+        if(mysqli_num_rows($result1) > 0){
+          while($row = mysqli_fetch_array($result1)){
+            ?>
+            <div class="media">
+              <form method="post" action="gioithieu.php?id=<?php echo $row["id"]; ?>">
+                <div class="media-left">
+                  <a href="chitiet.php?id=<?php echo $row['id'] ?>"><img  style="    width: 186px;" src="<?php echo  "./uploads/".$row['img'] ?> " ></a>
 
-                <div class="row">
-                    <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4">
-                        <p id="mauchu1">Cuộc sống hiện tại vốn xô bồ và ồn ào cho bạn cảm thấy mệt mỏi và căng thẳng. Nhưng chỉ với chút ít thời gian dành cho mình tại Tuấn Thương Skin Face Spa Quý khách sẽ tìm lại được chính mình</p>
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4 center">
-
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <p id="mauchu1">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng </p>
-                        <p id="mauchu1">Đường dây nóng: 01265982764</p>
-                        <p id="mauchu1">Email:tuannguyen106902@gmail.com</p>
-                    </div>
                 </div>
-
+                <div class="media-body">
+                  <h4 class="media-heading"><?php echo $row['prod_name']; ?></h4>
+                  <p><?php echo $row["description"]; ?></p>
+                </div>                    
+              </form>
             </div>
-        </section>
+            <?php
+          }
+          mysqli_free_result($result1);
+        }else{
+          echo "<p class='lead'> No records were found. </p>";
+        }
+      } else{
+        echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+      }
+
+      mysqli_close($mysqli);
+
+      ?> 
     </div>
 
-    <div class="row">      
-        <div class="row">
-            <div id="icon" class="contact">
-                <a href=""><i class="fa fa-facebook-f"></i></a>
-                <a href="https://twitter.com/?lang=vi"><i class="fa fa-twitter" "></i></a>
-                <a href="https://www.w3schools.com/"><i class="fa fa-wifi" "></i></a>
-                <a href="https://plus.google.com/u/0/discover"><i class="fa fa-google-plus-square"></i></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="author contact"> Thiết kế bởi: 
-                <a href="fb.html">Nguyễn Hữu Tuấn</a>
-                <a href="fb.html"> - Hồ Văn Tảo</a>
-            </div>
-        </div>
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+     <div class="progress">
+      <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+       <a href="#">Tảo Tuấn Spa</a>
+     </div>
+     <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+       <a href="#">Chất lượng</a>
+     </div>
+     <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+       <a href="#">Nhiệt tình</a>
+     </div>
+     <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+     aria-valuemin="0" aria-valuemax="100" style="width:20%">
+     <a href="#">Nhiều ưu đãi</a>
+   </div>
+ </div>
+</div>
+
+<div class="row  wow bounceInUp"  data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
+  <div class="  col-sm-12  ">
+    <h2 id="cauhoi">Tại sao nên chọn Tảo Tuấn Spa ?</h2></br>
+    <div class="row">
+      <?php 
+      require('connection_db.php');
+      $sql1 = "SELECT * FROM Products where status_id = 6   limit 3, 4 ;";
+      if($result1 = mysqli_query($mysqli, $sql1)){
+        if(mysqli_num_rows($result1) > 0){
+          while($row = mysqli_fetch_array($result1)){
+            ?>
+            <div class="col-xs-6 col-sm-6 col-md-6 col-lg-3">
+              <form method="post" action="gioithieu.php?id=<?php echo $row["id"]; ?>">
+                <div class=" thumbnail hovereffect  "  >
+                  <a href="products/DetailProduct.php?id=<?php echo $row['id'] ?>"><img  src="<?php echo  "./uploads/".$row['img'] ?> " ></a>
+                  <div class="overlay">
+                    <h2>Spa Tảo Tuấn</h2>
+
+                    <a class="info" href="chitiet.php?id=<?php echo $row['id'] ?>" style="background: white;">Xem thêm</a>
+                    <a class="info" href="#" style="background: white;"><input class="info" type="submit" name="add_to_cart" style="background: white;"   value="Add to Cart" /></a>
+                  </div>  
+                  <div class="caption">
+                   <h4 style="color: red;"><center> <?php echo $row['prod_name']; ?></center></h4>
+                   <p>
+                    <center><h4 style="color: black"> <?php echo $row['new_price']; ?> đ
+                      <strike> <?php echo $row['old_price']; ?> đ </strike> </h4></center>
+                    </p>
+                    <p>
+                     <input type="hidden" name="prod_name" value="<?php echo $row["prod_name"]; ?>" />  
+                     <input type="hidden" name="new_price" value="<?php echo $row["new_price"]; ?>" />  
+                   </p>
+                 </div>
+               </div>
+             </form>
+           </div>
+           <?php
+         }
+         mysqli_free_result($result1);
+       }else{
+        echo "<p class='lead'> No records were found. </p>";
+      }
+    } else{
+      echo "ERROR: Could not able to execute $sql. " . mysqli_error($mysqli);
+    }
+
+    mysqli_close($mysqli);
+
+    ?>    
+
+  </div>
+</div>
+</div>
+
+
+
+<div class="row wow bounceInUp"data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
+  <div class="  col-sm-12  ">
+    <div class="  col-sm-4   ">
+      <img src="Images/cauchuyen.jpg" class="img-circle" alt="" style="border: 5px solid #df2a0d;border-top: 1px solid #df2a0d;border-bottom: 13px solid #df2a0d;width: auto; margin-top: 30px;"> <br></br>
     </div>
- 	</div>
- </body>
- 	<span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span>
- </html>
+    <div class="  col-sm-7 ">
+      <br> </br>  
+      <p style="font-size: 15px;color: #3d3838;"  width="text-responsive">Câu chuyện bắt nguồn từ một người từng bị mụn tấn công khá nặng, mọi người cũng vì thế mà dần xa lánh. Mặc dù đã điều trị ở nhiều nơi nhưng kết quả vẫn bằng không. Sau khi có thời gian sinh sống tại Hàn Quốc, tôi quyết đinh mang bí quyết trị mụn, cách chăm sóc và dưỡng da về Việt Nam, như một phép màu giúp hàng triệu người dân Việt dễ dàng sở hữu được một làn da đẹp hoàn hảo như người dân xứ Hàn.</p>
+      <p style="font-size: 15px;color: #3d3838;">Mạnh dạn đem công nghệ tiên tiến, trang thiết bị hiện đại, cùng với sản phẩm chuyên điều trị mụn và chăm sóc da cao cấp. SEOUL SPA tự tin đem đến bạn làn da CĂNG BÓNG, SÁNG MỊN và SẠCH MỤN hoàn toàn, cam kết đem đến sự hài lòng tuyệt đối đến khách hàng. SEOUL SPA lấy tâm làm quy chuẩn đảm bảo mọi khách hàng luôn an tâm về chất lượng dịch vụ, từ nhân viên, máy móc đến sản phẩm điều trị. Mong muốn mọi người dân Việt Nam có thể tự tin mọi góc nhìn, mọi hoàn cảnh với một làn da sáng - sạch - đẹp.</p></br>
+    </div>
+  </div>
+</div>
+
+<div class="row wow bounceInUp" data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1" style="background: #e3ecec ">
+  <div class=" col-xs-12 col-sm-12 col-md-12 col-lg-6 ">
+    <h2 class="" style="color: #e616f4;font-style: italic;">Secret of BeautyPress</h2>
+    <p style="font-size: 15px;color: #3d3838;" width="text-responsive" >Tọa lạc tại địa chỉ 101B Lê Hữu Trác, Phường Phước Mỹ, Quận Sơn Trà, TP Đà Nẵng, Thương Tuấn Spa là địa chỉ làm đẹp đáng tin cậy với công nghệ và các chuyên gia hàng đầu về thẩm mĩ, thuận tiện cho khách hàng lui tới thăm khám và trải nghiệm dịch vụ. Thương Tuấn Spa đi vào hoạt động như hiện thân của sự đẳng cấp và hiện đại từ những chi tiết nhỏ nhặt nhất. Đạt điểm tối đa khi sở hữu một không gian sang trọng và hoàn toàn riêng tư, Thương Tuấn Spa chiếm trọn cảm tình của khách hàng khi đi cùng với vẻ tinh tế bề ngoài là một chất lượng dịch vụ tận tâm, cao cấp đat tiêu chuẩn chất lượng 5*.</p>
+    <p style="font-size: 15px;color: #3d3838;">Sứ mệnh cao cả của Thương Tuấn Spa
+      Các chị em khi gặp phải các vấn đề về da như: mụn bọc, sạm nám, da sần sùi, thừa cân,… đều không dám giao tiếp, ngại ra ngoài và né tránh chụp ảnh hoặc sợ sệt trước mọi ánh nhìn của xã hội. Đây đều là những biểu hiện của người phụ nữ thiếu tự tin trong cuộc sống, khiến họ mất di nhiều cơ hội trong công việc, cơ hội có được hạnh phúc trong cuộc sống.
+      Các vấn đề về da khiến phụ nữ thiếu tự tin, ảnh hưởng đến tâm lý và các hoạt động xã hội
+      Thương Tuấn Spa luôn trăn trở và cảm thấy mình cần có trách nhiệm để giúp các chị em thoát khỏi nỗi ám ảnh này. Đến với Thương Tuấn Spa, chúng tôi đem đến sự tự tin để bạn thoải mái thể hiện mình, phô diễn trí tuệ và tài năng của bản thân nhờ làn da mặt mịn màng, vẻ đẹp tự nhiên khiến ai cũng mê mẩn và ngưỡng mộ.
+    Hãy đến với Thương Tuấn Spa để bạn được chăm sóc sức khỏe và sắc đẹp như một chính khách của Hoàng Gia !</p>
+  </div>
+  <div class="  col-xs-12 col-sm-12 col-md-12 col-lg-6 " style="margin-top: 90px;">
+   <iframe width="responsive" height="315" width="500" src="https://www.youtube.com/embed/9XLw5v16auY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+ </div>
+</div>
+<!-- Facebook comment -->
+<div class="fb-comments" data-href="https://thuongtuanspaproject.000webhostapp.com/" data-numposts="5"></div>
+
+
+
+
+</div>
+<div class="row">
+  <?php include('bottom.php'); ?>
+</div>
+</div>
+
+</form>
+
+
+</div>
+
+</body>
+<script>
+ function addCart(id)  
+ {  
+  $.ajax({  
+    url:"add_cart.php",  
+    method:"POST",  
+    data:{id:id, quantity:quantity}, 
+    dataType:"text",  
+    success:function(data){  
+      alert(data);
+    }  
+  });  
+}
+
+$(document).on('click','a[data-role=delete]',function(){
+  var id  = $(this).data('id');
+
+  addCart(id);  
+
+
+});
+
+</script>
+
+</html>

@@ -1,3 +1,4 @@
+
 <?php
 error_reporting(1);
 include("connection_db.php");
@@ -70,7 +71,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
     }
 </style>
 </head>
-<body>
+<body  style="background: #ecfbf8" >
     <div class="wrapper">
         <div class="container ">
             <div class="row">
@@ -182,7 +183,7 @@ if(isset($_GET["id"]) && !empty(trim($_GET["id"]))){
                </div>
            </div>
 
-           <p><a href="index.php" class="btn btn-primary">Back</a></p>
+           <p><a href="select.php" class="btn btn-primary">Back</a></p>
        </div>
    </div>        
 </div>

@@ -2,12 +2,14 @@
 error_reporting(1);
 include"connection_db.php";
 session_start();
+header('Content-Type: text/html; charset=UTF-8');
 
-// // Check if the user is already logged in, if yes then redirect him to welcome page
-// if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-//     header("location: login.php");
-//     exit;
-// }
+
+// Check if the user is already logged in, if yes then redirect him to welcome page
+if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
+    header("location: home.php");
+    exit;
+}
 
 // Define variables and initialize with empty values
 $username = $password = "";
@@ -55,14 +57,27 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                         if(password_verify($password, $hashed_password)){
                             // Password is correct, so start a new session
                             session_start();
-                            
+                            $_SESSION["loggedin"] = false;
+                            $_SESSION["id"] = '';
+                            $_SESSION["username"] = '';  
+
                             // Store data in session variables
                             $_SESSION["loggedin"] = true;
                             $_SESSION["id"] = $id;
-                            $_SESSION["username"] = $username;                            
+                            $_SESSION["username"] = $username;  
+
+                            if ($_SESSION["id"] =='1' || $_SESSION["id"] =='2') 
+                            {
+                              header("location: admin.php");
+                            }else{
+                               header("location: home.php");
+                            }
+
+
+                             
                             
                             // Redirect user to welcome page
-                            header("location: home.php");
+                            
                         } else{
                             // Display an error message if password is not valid
                             $password_err = "The password you entered was not valid.";
@@ -149,7 +164,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
           <button class="btn btn-primary btn-lg btn-block" type="submit"  value="Login">Login</button>
 
 
-        <p>Don't have an account? <a href="Signup.php">Sign up now</a>.</p>
+        <p style=" color: red; font-weight: bold;">Don't have an account? <a href="Signup.php">Sign up now</a>.</p>
         </div>
       </form>
     </div>

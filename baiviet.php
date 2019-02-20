@@ -1,315 +1,224 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Home</title>
-    <link rel="stylesheet" type="text/css" href="CSS/style.css">
-    <link rel="stylesheet" href="swiper-master/dist/css/swiper.min.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script language="javascript"></script>
-    <script type="text/javascript" src="JS/script.js"></script>
-    <meta name="Viewport" content="width=device-width.initial-scale=1">
-    <meta http-equiv="X-UA-compatible" content="IE=edge"> 
-    <link rel="stylesheet" type="text/css" href="animate/animate.css">
-    <script type="text/javascript" src="animate/wow.min.js"></script>
+ <?php 
+ session_start();
+ error_reporting(1);
+ include("connection_db.php");
+ session_start();
+ 
+ ?>
 
-    <script type="text/javascript">
-       new WOW().init();
-   </script>
+ <!DOCTYPE html>
+ <html>
+ <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Home</title>
 
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-</head>
-<body  style="background: #effcfa;">
-    <div id="fb-root"></div>
-    <script>(function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+
+  <link rel="stylesheet" type="text/css" href="CSS/style.css">
+  <link rel="stylesheet" href="swiper-master/dist/css/swiper.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script language="javascript"></script>
+  <script type="text/javascript" src="JS/script.js"></script>
+  <meta name="Viewport" content="width=device-width.initial-scale=1">
+  <meta http-equiv="X-UA-compatible" content="IE=edge"> 
+  <link rel="stylesheet" type="text/css" href="animate/animate.css">
+  <script type="text/javascript" src="animate/wow.min.js"></script>
+
+  <script type="text/javascript">
+    new WOW().init();
 </script>
-<div class="container">
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                <img src="Images/logo.png" title="Dịch Vụ Spa Thương Tuấn" style="margin-top: 10px; margin-bottom: 5px;margin-left: -20px; width: 140px;">
-            </div>
-            <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                <input type="text" name="" id="input" class="form-control" placeholder=" Tìm kiếm ..." style="margin-top: 55px; margin-left: 40px">
-            </div>
-            <div class="  col-xs-1 col-sm-1 col-md-1 col-lg-1 ">
-                <button type="button" class="btn btn-danger" style="margin-top: 55px;margin-left: -10px;"><span class="glyphicon glyphicon-search"></span>  </button>
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-5" style="margin-top: 17px;">
-                <address class="text-responsive">
-                    <strong>Địa chỉ :</strong>
-                    101B Lê Hữu Trác, Sơn Trà, Đà Nẵng <br>
-                    <strong><abbr title="Phone">Điện thoại:</strong></abbr> 01265982764<br>
-                    <strong>Email : </strong><br>
-                    <a href="mailto:#">tuan.nguyen.106902@gmail.com</a>
-                </address>
-            </div>
-            <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<meta charset="utf-8">
+</head>
+
+<body  style="background: #effcfa;">
+  <?php
+  require_once "top.php";
+  ?>
+  <div id="wapper">
+
+    <form method="post" action="chitiet.php?id=<?php echo $row["id"]; ?>">
+      <div class="container ">
+        <div style="  margin-left: 2%; margin-right: 2%" class="row chitiet">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <section class="background-container background-form" style="background-image: url('Images/baiviet.jpg')">
+                        <div class="background-overlay"></div>
+                        <div class="container">
+                            <div class="text-inner-background">
+                                <h1 class="color-white">Tảo Tuấn Spa </h1>
+                                <p   style="font-size: 25px;color: white; 
+                                ">Phương châm chỉ cung cấp các dòng sản phẩm Spa thuần thiên nhiên, bạn chắc chắn sẽ hài lòng với chất lượng cùng công hiệu tuyệt vời từ dòng Sản phẩm Spa do Ngọc Anh Spa cung cấp </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <div class="row wow bounceInUp"data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
+
+                    <div class=" col-sm-4  ">
+                       <h2 style="margin-top: 117px;font-style: italic;color: #f60bce;font-weight: bold;font-size: 40px;">Dịch vụ <br>Tảo Tuan Spa</h2>
+                       <span class="beautypress-gradient-separetor"></span>
+                       <br>
+                       <p style="font-size: 16px;color: #607070;">Hãy đến với Tảo Tuan Spa để bạn được chăm sóc sức khỏe và sắc đẹp như một chính khách của Hoàng Gia !</p> <br>
+                       <a href="gioithieu.php"><button type="button" class="btn btn-danger">Về Chúng Tôi</button></a>
+                   </div>
+                   <div class="  col-sm-1  ">
+
+                   </div>
+                   <div class="  col-sm-7  ">
+                    <div class="row">
+                        <div class="  col-sm-6  ">
+                            <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-spa-u-trang.jpg" style="width: 315px;height: 340px;">
+                        </div>
+                        <div class="  col-sm-6  ">
+                            <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-spa.jpg" style="    width: 315px;height: 170px;"  >
+                        </div>
+
+                        <div class="  col-sm-6  ">
+                            <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-salon-hair-quan-3.jpg"style=" margin-top: 10px;width: 315px;height: 340px;"  >
+                        </div>
+                        <div class="  col-sm-6  ">
+                            <img class="button" src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/spa-cao-thang-tphcm-chat-luong.jpg"  style="  margin-top: -190px;  width: 315px;height: 170px;"  >
+
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
-
-                     <a href="Login.php"><button type="button" class="btn btn-primary" style="margin-top: 30px;" data-toggle="modal" data-target="#loginModal"  ><i class="glyphicon glyphicon-map-marker hvr-grow a"></i>
-                        Đăng nhập
-                    </button></a>
-                    
-                    <a href="Signup.php"><button type="button" class="btn btn-primary" style="margin-top: 20px;    width: 109px;" data-toggle="modal" data-target="#signupModal"><i class="glyphicon glyphicon-user  hvr-grow a"></i>
-                        Đăng ký
-                    </button></a>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
+                                <a href="#">Tảo Tuấn Spa</a>
+                            </div>
+                            <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
+                               <a href="#">Chất lượng</a>
+                           </div>
+                           <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
+                            <a href="#">Nhiệt tình</a>
+                        </div>
+                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
+                        aria-valuemin="0" aria-valuemax="100" style="width:20%">
+                        <a href="#">Nhiều ưu đãi</a>
+                    </div>
                 </div>
+                <div class="row">
+                    <h2>Các sản phẩm thịnh hành hiện nay!</h2>
+                    <div class="  col-sm-6">
+                        <div class="thumbnail" style="background: #e7ecec;">
+                            <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-8.jpg" style="width: 500px;">
+                            <div class="caption">
+                                <a href="#" class="beautypress-service-title">BOTULIN EFFECT CREAM.</a>
+                                <p>( KEM CHỐNG LÃO HÓA ĐẶC TRỊ CÁC NẾP NHĂN BIỂU HIỆN TRÊN KHUÔN MẶT)
+                                    THÀNH PHẦN : SNAP – 25 ANTAGONIST, HIBISKUS PEPTIDE, VITAMIN E, PUFA…
+                                    CÔNG DỤNG:
+                                    Điều trị tích cực giảm các nếp nhăn động .
+                                    Cung cấp dưỡng chất, chống oxy hóa .
+                                    Cung cấp ẩm sâu.
+                                    Tăng cường hiệu quả sau các thủ thuật thẩm mỹ : phẫu thuật căn da mặt và cổ , nâng cơ Rf, VENUS…
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="  col-sm-6">
+                        <div class="thumbnail" style="background: #e7ecec;">
 
-            </div>
-        </div>
-    </div>
+                            <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-2.jpg" style="width: 500px;">
+                            <div class="caption">
+                                <a href="#" class="beautypress-service-title"> EYE CREAM CHỐNG NHĂN VÙNG MẮT</a>
+                                <p>(KEM DƯỠNG CHỐNG NHĂN VÙNG MẮT)
+                                    THÀNH PHẦN : ARGANIA SPINOSAT, DECAPEPTIDE – 4, ACETYL – TETRAPEPTIDE 9, PHOSPHOLIPIDS, SODIUM HYALURINATE.
+                                    CÔNG DỤNG:
+                                    Giãm rãnh nhăn vùng mắt .
+                                    Tăng Collagen, giúp da vùng mắt săn chắc và tăng độ đàn hồi .
+                                    Cung cấp ẩm và giữ ẩm vùng mắt .
+                                    Da vùng mắt có dấu hiệu lão hóa do ánh sáng và thói quen sinh hoạt.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="  col-sm-6">
+                        <div class="thumbnail" style="background: #e7ecec;">
+                            <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-7.jpg" style="width: 500px;">
+                            <div class="caption">
+                                <a href="#" class="beautypress-service-title">KEM   BAMBOO WHITENING AQUA</a>
+                                <p>Bamboo Whitening Aqua với thành phần chính là 3-mer EGF Peptide được phát hiện năm 1986 bởi nhà khoa học Stanley Cohen với giải thưởng Nobel cho nghiên cứu quan trọng.
+                                 EGF là yếu tố tăng trưởng đóng vai trò quan trọng trong việc điều tiết tăng trưởng tế bào, sự sinh sôi và phân bào. EGF hoạt động bằng cách gắn lên bề mặt tế bào, giúp sắp xếp lại tổ chức nhằm kích thích sản xuất năng lượng và tổng hợp protein. EGF có độ hoạt hóa và thẩm thấu cao cho hiệu quả sử dụng ngay lập tức chỉ sau 1 lần sử dụng.
 
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <div id="header">
-            <nav class="navbar navbar-inverse" style="margin-top: 0px">
-                <div class="navbar-header" style="height: 0px" >
-                    <a href="home.php" title="Dịch Vụ Spa Thương Tuấn" class="navbar-brand" id="maumenu">Tảo Tuấn Spa</a>
-                </div>
-                <div class="navbar-header menubar">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                </div>
+                                 Dung tích: 150ml/chai.
 
-                <div class="collapse navbar-collapse menubar" id="collapse">
-                    <ul class="nav navbar-nav navbar-right menubar">
-                        <li><a href="home.php" title="Trang Chủ"  id="maumenu"><span class="glyphicon glyphicon-home"></span> Trang chủ</a></li>
-                        <li><a href="gioithieu.php" title="Giới Thiệu" id="maumenu"> <span class="glyphicon glyphicon-star-empty"></span>Giới thiệu</a></li>
-                        <li class="dropdown" >
-                            <a  id="maumenu" href="#" title="Dịch Vụ Spa" class="dropdown-toggle" data-toggle="dropdown"><span class="caret"></span> Dịch Vụ Spa</a>
-                            <ul class="dropdown-menu menubar">
-                                <li><a href="dieutri.php" title="Điều Trị">Điều Trị</a></li>
-                                <li><a href="#" title="Trắng Da">Trắng Da</a></li>
-                                <li><a href="#"  title="Giảm Béo">Giảm Béo</a></li>
-                                <li><a href="#" title="Chăm Sóc Gia<">Chăm Sóc Gia</a></li>
-                                <li><a href="#" title="Phun Xăm">Phun Xăm</a></li>
 
-                            </ul>
-                        </li>
+                                 Tác dụng:
+                                 - Da căng bóng, sáng mịn.
+                                 - Tái tạo da mới, làm mờ vết thâm, phục hồi các tế bào bị tổn thương.
+                                 - Thúc đẩy da hấp thụ chất dinh dưỡng tốt hơn.
+                                 - Thúc đẩy sản sinh collagen và chống oxy hóa, cho da đàn hồi và khỏe mạnh hơn.
 
-                        <li><a href="baiviet.php" title="Bài Viết"  id="maumenu" ><span class="glyphicon glyphicon-menu-hamburger"></span>Bài Viết</a></li>
-                        <li><a href="lienhe.php" title="Liên hệ" id="maumenu" ><span class="glyphicon glyphicon-envelope"></span> Liên hệ</a></li>
-                        <li><a href="#" title="Shoping Card " id="maumenu" ><span class="glyphicon glyphicon-shopping-cart  hvr-grow a1"></span> My Cart</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div>
-    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-        <section class="background-container background-form" style="background-image: url('Images/baiviet.jpg')">
-            <div class="background-overlay"></div>
-            <div class="container">
-                <div class="text-inner-background">
-                    <h1 class="color-white">Tảo Tuấn Spa </h1>
-                    <p   style="font-size: 25px;color: white; 
-                    ">Phương châm chỉ cung cấp các dòng sản phẩm Spa thuần thiên nhiên, bạn chắc chắn sẽ hài lòng với chất lượng cùng công hiệu tuyệt vời từ dòng Sản phẩm Spa do Ngọc Anh Spa cung cấp </p>
-                </div>
-            </div>
-        </section>
-    </div>
-    <div class="row wow bounceInUp"data-wow-duration="2s" data-wow-delay="0s" data-wow-interaion="1">
 
-        <div class=" col-sm-4  ">
-           <h2 style="margin-top: 117px;font-style: italic;color: #f60bce;font-weight: bold;font-size: 40px;">Dịch vụ <br>Tảo Tuan Spa</h2>
-           <span class="beautypress-gradient-separetor"></span>
-           <br>
-           <p style="font-size: 16px;color: #607070;">Hãy đến với Tảo Tuan Spa để bạn được chăm sóc sức khỏe và sắc đẹp như một chính khách của Hoàng Gia !</p> <br>
-           <a href="gioithieu.php"><button type="button" class="btn btn-danger">Về Chúng Tôi</button></a>
-       </div>
-       <div class="  col-sm-1  ">
+                                 Cách dùng:
+                             Sử dụng như sản phẩm chăm sóc da hàng ngày, đặc biệt đối với da vừa bong do điều trị laser, lăn kim, thay da sinh học,…</p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="  col-sm-6">
+                    <div class="thumbnail" style="background: #e7ecec;">
+                        <img  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-1.jpg"style="width: 500px;">
+                        <div class="caption">
+                            <a href="#" class="beautypress-service-title">SIÊU PHẨM KEM CELL FEED</a>
+                            <p>Kem Cell Feed là siêu phẩm đặc trị sau laser với những thành phần là nguyên liệu cấu tạo tế bào và sợi collagen nhằm mục đích tái tạo da hư tổn, cung cấp dưỡng ẩm, kích thích sự phát triển của tế  bào và tái cấu trúc mô.
+                               Không có bất kỳ phản ứng phụ nào kể cả với da nhạy cảm, chứa thành phần nồng độ peptide cao. Hiệu quả trị liệu tuyệt vời đối với hồi phục, giảm viêm và tái tạo da sau laser, lăn kim, peeling,…
 
-       </div>
-       <div class="  col-sm-7  ">
-        <div class="row">
-            <div class="  col-sm-6  ">
-                <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-spa-u-trang.jpg" style="width: 315px;height: 340px;">
-            </div>
-            <div class="  col-sm-6  ">
-                <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-spa.jpg" style="    width: 315px;height: 170px;"  >
-            </div>
 
-            <div class="  col-sm-6  ">
-                <img class="img-rounded"  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/ngoc-anh-salon-hair-quan-3.jpg"style=" margin-top: 10px;width: 315px;height: 340px;"  >
-            </div>
-            <div class="  col-sm-6  ">
-                <img class="button" src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/07/spa-cao-thang-tphcm-chat-luong.jpg"  style="  margin-top: -190px;  width: 315px;height: 170px;"  >
+                               Thành phần:
+                               PEG-100, Palmitoyle sh-Tripeptide-4 Amide, dầu Olive, Polyacrylamide, C13-14 Isoparaffin, Sodium Hydroxide, Palimitcyle sh-Tripeptide-53 Amide, Arbutin.
 
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <div class="progress">
-                <div class="progress-bar progress-bar-success" role="progressbar" style="width:40%">
-                    <a href="#">Tảo Tuấn Spa</a>
-                </div>
-                <div class="progress-bar progress-bar-warning" role="progressbar" style="width:20%">
-                   <a href="#">Chất lượng</a>
+
+                               Công dụng:
+                               - Tăng cường sự đàn hồi cho da.
+                               - Cải thiện lớp biểu bì của da bị hư tổn.
+                           - Tái tạo phục hồi tổn thương một cách hiệu quả.</p>
+                       </div>
+                   </div>
                </div>
-               <div class="progress-bar progress-bar-danger" role="progressbar" style="width:20%">
-                <a href="#">Nhiệt tình</a>
-            </div>
-            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="50"
-            aria-valuemin="0" aria-valuemax="100" style="width:20%">
-            <a href="#">Nhiều ưu đãi</a>
-        </div>
-    </div>
-    <div class="row">
-        <h2>Các sản phẩm thịnh hành hiện nay!</h2>
-        <div class="  col-sm-6">
-            <div class="thumbnail" style="background: #e7ecec;">
-                <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-8.jpg" style="width: 500px;">
-                <div class="caption">
-                    <a href="#" class="beautypress-service-title">BOTULIN EFFECT CREAM.</a>
-                    <p>( KEM CHỐNG LÃO HÓA ĐẶC TRỊ CÁC NẾP NHĂN BIỂU HIỆN TRÊN KHUÔN MẶT)
-                        THÀNH PHẦN : SNAP – 25 ANTAGONIST, HIBISKUS PEPTIDE, VITAMIN E, PUFA…
-                        CÔNG DỤNG:
-                        Điều trị tích cực giảm các nếp nhăn động .
-                        Cung cấp dưỡng chất, chống oxy hóa .
-                        Cung cấp ẩm sâu.
-                        Tăng cường hiệu quả sau các thủ thuật thẩm mỹ : phẫu thuật căn da mặt và cổ , nâng cơ Rf, VENUS…
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="  col-sm-6">
-            <div class="thumbnail" style="background: #e7ecec;">
-
-                <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-2.jpg" style="width: 500px;">
-                <div class="caption">
-                    <a href="#" class="beautypress-service-title"> EYE CREAM CHỐNG NHĂN VÙNG MẮT</a>
-                    <p>(KEM DƯỠNG CHỐNG NHĂN VÙNG MẮT)
-                        THÀNH PHẦN : ARGANIA SPINOSAT, DECAPEPTIDE – 4, ACETYL – TETRAPEPTIDE 9, PHOSPHOLIPIDS, SODIUM HYALURINATE.
-                        CÔNG DỤNG:
-                        Giãm rãnh nhăn vùng mắt .
-                        Tăng Collagen, giúp da vùng mắt săn chắc và tăng độ đàn hồi .
-                        Cung cấp ẩm và giữ ẩm vùng mắt .
-                        Da vùng mắt có dấu hiệu lão hóa do ánh sáng và thói quen sinh hoạt.
-                    </p>
-                </div>
-            </div>
-        </div>
-        <div class="  col-sm-6">
-            <div class="thumbnail" style="background: #e7ecec;">
-                <img src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-7.jpg" style="width: 500px;">
-                <div class="caption">
-                    <a href="#" class="beautypress-service-title">KEM   BAMBOO WHITENING AQUA</a>
-                    <p>Bamboo Whitening Aqua với thành phần chính là 3-mer EGF Peptide được phát hiện năm 1986 bởi nhà khoa học Stanley Cohen với giải thưởng Nobel cho nghiên cứu quan trọng.
-                     EGF là yếu tố tăng trưởng đóng vai trò quan trọng trong việc điều tiết tăng trưởng tế bào, sự sinh sôi và phân bào. EGF hoạt động bằng cách gắn lên bề mặt tế bào, giúp sắp xếp lại tổ chức nhằm kích thích sản xuất năng lượng và tổng hợp protein. EGF có độ hoạt hóa và thẩm thấu cao cho hiệu quả sử dụng ngay lập tức chỉ sau 1 lần sử dụng.
-
-                     Dung tích: 150ml/chai.
 
 
-                     Tác dụng:
-                     - Da căng bóng, sáng mịn.
-                     - Tái tạo da mới, làm mờ vết thâm, phục hồi các tế bào bị tổn thương.
-                     - Thúc đẩy da hấp thụ chất dinh dưỡng tốt hơn.
-                     - Thúc đẩy sản sinh collagen và chống oxy hóa, cho da đàn hồi và khỏe mạnh hơn.
+
+           </div>
+           <div class="row">
+              <?php include('bottom.php'); ?>
+          </div>
+      </div>
+      
+  </form>
 
 
-                     Cách dùng:
-                     Sử dụng như sản phẩm chăm sóc da hàng ngày, đặc biệt đối với da vừa bong do điều trị laser, lăn kim, thay da sinh học,…</p>
-                </div>
-            </div>
-        </div>
-        <div class="  col-sm-6">
-            <div class="thumbnail" style="background: #e7ecec;">
-                <img  src="http://ngocanhhairspa.com.vn/wp-content/uploads/2018/08/my-pham-ngoc-anh-spa-chat-luong-1.jpg"style="width: 500px;">
-                <div class="caption">
-                    <a href="#" class="beautypress-service-title">SIÊU PHẨM KEM CELL FEED</a>
-                    <p>Kem Cell Feed là siêu phẩm đặc trị sau laser với những thành phần là nguyên liệu cấu tạo tế bào và sợi collagen nhằm mục đích tái tạo da hư tổn, cung cấp dưỡng ẩm, kích thích sự phát triển của tế  bào và tái cấu trúc mô.
-                   Không có bất kỳ phản ứng phụ nào kể cả với da nhạy cảm, chứa thành phần nồng độ peptide cao. Hiệu quả trị liệu tuyệt vời đối với hồi phục, giảm viêm và tái tạo da sau laser, lăn kim, peeling,…
-
-
-                   Thành phần:
-                   PEG-100, Palmitoyle sh-Tripeptide-4 Amide, dầu Olive, Polyacrylamide, C13-14 Isoparaffin, Sodium Hydroxide, Palimitcyle sh-Tripeptide-53 Amide, Arbutin.
-
-
-                   Công dụng:
-                   - Tăng cường sự đàn hồi cho da.
-                   - Cải thiện lớp biểu bì của da bị hư tổn.
-                   - Tái tạo phục hồi tổn thương một cách hiệu quả.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Facebook comment -->
-    <div class="fb-comments" data-href="https://thuongtuanspaproject.000webhostapp.com/" data-numposts="5"></div>
-    <!-- FOOTER -->
-<div class="row">
-    <section class="footer-container footer-form"  style="background-image: url( 'Images/footerbground.png')">
-        <div class="container"> 
-            <div class="text-inner-background">
-                <center>
-                    <!-- <a class="up-arrow" href="#first">aaaaa</a></br> -->
-                    <!-- <a href=""><img class="up-arrow" src="Images/logo.png" title="Dịch Vụ Spa Thương Tuấn" style="width: 150px;"></a> -->
-                    <label class="mac"> ĐĂNG KÝ NHẬN KHUYẾN MÃI </label>
-                </center>
-                <div class="row">
-                    <div class="col-xs-1 col-sm-3 col-md-3 col-lg-3">
-                    </div>
-
-                    <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-                        <input type="text" name="" id="input" class="form-control" placeholder=" Email ..." style="margin-top: -5px; margin-left: 41px;
-                        ">
-                    </div>
-
-                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
-                        <button type="button" class="btn btn-danger" style="margin-top: -5px;margin-left:-130px;"><span class="glyphicon glyphicon-envelope"></span> Đăng ký</button>
-                    </div>
-                </div><br></br>
-
-                <div class="row">
-                    <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4">
-                        <p id="mauchu1">Cuộc sống hiện tại vốn xô bồ và ồn ào cho bạn cảm thấy mệt mỏi và căng thẳng. Nhưng chỉ với chút ít thời gian dành cho mình tại Tuấn Thương Skin Face Spa Quý khách sẽ tìm lại được chính mình</p>
-                    </div>
-                    <div class="col-xs-3 col-sm-4 col-md-4 col-lg-4 center">
-
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-                        <p id="mauchu1">Thứ 2 - 6:  9:00 – 18:00</p>
-
-                    </div>
-                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                        <p id="mauchu1">101B Lê Hữu Trác, Sơn Trà, Đà Nẵng </p>
-                        <p id="mauchu1">Đường dây nóng: 01265982764</p>
-                        <p id="mauchu1">Email:tuannguyen106902@gmail.com</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 </div>
-<div class="row">      
-    <div class="row">
-        <div id="icon" class="contact">
-            <a href=""><i class="fa fa-facebook-f"></i></a>
-            <a href="https://twitter.com/?lang=vi"><i class="fa fa-twitter" "></i></a>
-            <a href="https://www.w3schools.com/"><i class="fa fa-wifi" "></i></a>
-            <a href="https://plus.google.com/u/0/discover"><i class="fa fa-google-plus-square"></i></a>
-        </div>
-    </div>
-    <div class="row">
-        <div class="author contact"> Thiết kế bởi: 
-            <a href="fb.html">Nguyễn Hữu Tuấn</a>
-            <a href="fb.html"> - Hồ Văn Tảo</a>
-        </div>
-    </div>
-</div>
-</div>
+
 </body>
-<span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span>
+<script>
+ function addCart(id)  
+ {  
+  $.ajax({  
+    url:"add_cart.php",  
+    method:"POST",  
+    data:{id:id, quantity:quantity}, 
+    dataType:"text",  
+    success:function(data){  
+      alert(data);
+  }  
+});  
+}
+
+$(document).on('click','a[data-role=delete]',function(){
+  var id  = $(this).data('id');
+
+  addCart(id);  
+
+
+});
+
+</script>
+
 </html>

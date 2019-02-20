@@ -1,5 +1,10 @@
 <?php
 error_reporting(1);
+session_start();
+if (!isset($_SESSION['username'])) {
+  header("location: login.php");
+}
+
 
 require_once "connection_db.php";
 
@@ -193,7 +198,7 @@ if(isset($_POST["id"]) && !empty($_POST["id"])){
     }
 </style>
 </head>
-<body>
+<body style="background: #ecfbf8" >
     <div class="wrapper">
         <div class="container-fluid">
             <?php error_reporting(1) ?>

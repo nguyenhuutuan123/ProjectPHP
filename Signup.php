@@ -2,6 +2,8 @@
 error_reporting(1);
 include("connection_db.php"); 
 
+ 
+
 // Define variables and initialize with empty values
 $username = $phone_number = $Email = $password = $confirm_password = "";
 $username_err = $phone_number_err = $Email_err =  $password_err = $confirm_password_err = "";

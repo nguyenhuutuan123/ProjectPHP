@@ -9,9 +9,5 @@
 	//check connection
 	if ($mysqli === false) {
 		die("Error Could not cennect". $mysqli -> connect_error );
-	}
-
-
-
-	
+	}	
  ?>
